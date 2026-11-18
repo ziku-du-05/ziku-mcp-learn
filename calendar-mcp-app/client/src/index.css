@@ -1,0 +1,270 @@
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #1f2937;
+  background: #f4f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: #2563eb;
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 40px auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin-bottom: 8px;
+}
+
+.button {
+  display: inline-block;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  color: white;
+  background: #2563eb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.notice,
+.error {
+  padding: 16px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.notice {
+  background: #e0f2fe;
+}
+
+.error {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+  gap: 16px;
+}
+
+.event-card {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 5%);
+}
+
+.event-card h2 {
+  margin-top: 0;
+}
+
+.description {
+  color: #4b5563;
+  white-space: pre-wrap;
+}
+
+.chat-section {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 5%);
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 420px;
+  margin: 20px 0;
+  padding: 16px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+
+.chat-message p {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  color: white;
+  background: #2563eb;
+}
+
+.chat-message.assistant {
+  align-self: flex-start;
+  background: #e5e7eb;
+}
+
+.chat-form {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-form input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .header,
+  .chat-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chat-message {
+    max-width: 95%;
+  }
+}
+
+/* AI loading message */
+.loading-message {
+  min-width: 190px;
+}
+
+.loading-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Main spinner */
+.spinner {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  border: 2px solid #cbd5e1;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Three animated typing dots */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 20px;
+  margin-top: 8px;
+}
+
+.typing-indicator span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #64748b;
+  animation: typing-bounce 1.2s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Send button */
+.send-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 110px;
+}
+
+.button-spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgb(255 255 255 / 45%);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Error message */
+.chat-message.chat-error {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Typing dots animation */
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+}
+
+/* Respect users who disable motion */
+@media (prefers-reduced-motion: reduce) {
+  .spinner,
+  .button-spinner,
+  .typing-indicator span {
+    animation: none;
+  }
+}

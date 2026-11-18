@@ -66,6 +66,8 @@ The application has two main features:
 
 The React application connects to a Google account through OAuth 2.0 and displays upcoming events from the user's primary Google Calendar.
 
+Once connected, use **Switch Google Account** next to **Refresh Events** to choose another account. A successful authorization replaces the saved account credentials; cancelling leaves the existing connection unchanged. This demo shares one saved account across all backend users and always displays that account's primary calendar.
+
 ### 2. AI Calendar Assistant
 
 The user can ask calendar-related questions through a chat interface.
@@ -1569,9 +1571,9 @@ Software developer learning and building applications with:
 
 ### Connect
 
-- GitHub: `https://github.com/YOUR_USERNAME`
-- Medium: `https://medium.com/@YOUR_USERNAME`
-- LinkedIn: `https://linkedin.com/in/YOUR_USERNAME`
+- GitHub: `https://github.com/ziku-du-05/ziku-mcp-learn`
+- Medium: `https://medium.com/@determind15ziku`
+- LinkedIn: `https://linkedin.com/in/ziku15`
 
 ---
 

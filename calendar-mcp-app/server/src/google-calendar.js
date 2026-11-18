@@ -62,7 +62,7 @@ export function createGoogleAuthorizationUrl(state) {
 
   return oauth2Client.generateAuthUrl({
     access_type: "offline",
-    prompt: "consent",
+    prompt: "select_account consent",
     include_granted_scopes: true,
     scope: [CALENDAR_SCOPE],
     state,
@@ -77,7 +77,12 @@ export async function exchangeAuthorizationCode(code) {
 
   const { tokens } = await oauth2Client.getToken(code);
 
-  await saveTokens(tokens);
+  // A new authorization may belong to a different account.
+  await fs.writeFile(
+    TOKEN_PATH,
+    JSON.stringify(tokens, null, 2),
+    "utf8"
+  );
 
   return tokens;
 }

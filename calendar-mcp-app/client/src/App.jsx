@@ -106,9 +106,17 @@ function App() {
             Connect Google Calendar
           </a>
         ) : (
-          <button className="button" onClick={loadEvents}>
-            Refresh Events
-          </button>
+          <div className="header-actions">
+            <button className="button" onClick={loadEvents}>
+              Refresh Events
+            </button>
+            <a
+              className="button"
+              href={`${API_URL}/auth/google`}
+            >
+              Switch Google Account
+            </a>
+          </div>
         )}
       </header>
 
